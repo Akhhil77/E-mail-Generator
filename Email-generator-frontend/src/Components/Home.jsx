@@ -21,7 +21,7 @@ export default function Home(){
     setGeneratedReply("");
  
     try {
-      const response = await axios.post("http://localhost:8080/api/email/generate", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/email/generate`, {
         emailContent: emailContent,
         tone: tone,
       });
