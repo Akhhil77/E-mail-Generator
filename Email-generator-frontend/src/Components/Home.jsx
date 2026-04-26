@@ -21,12 +21,14 @@ export default function Home(){
     setGeneratedReply("");
  
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/email/generate`, {
+       const API_URL = import.meta.env.VITE_API_URL;
+      const response = await axios.post(`${API_URL}/api/email/generate`, {
         emailContent: emailContent,
         tone: tone,
       });
       setGeneratedReply(response.data);
     } catch (err) {
+      console.log(err)
       setError("Failed to generate reply. Please check your connection and try again.");
     } finally {
       setLoading(false);
