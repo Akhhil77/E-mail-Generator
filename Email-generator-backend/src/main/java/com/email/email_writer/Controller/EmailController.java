@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/email")
-@CrossOrigin("*")
+@CrossOrigin(origins = "${CORS_ALLOWED_ORIGINS}")
 public class EmailController {
 
     @Autowired
